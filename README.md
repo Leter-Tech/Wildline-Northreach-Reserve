@@ -18,3 +18,26 @@ Use the Equipment Shop to buy mission equipment, including the Trailmaster semi-
 8. **Bait and hunt the lioness** — Buy five leg-hold traps and a med kit. Set traps in Foxglove Meadow at night, harvest the rabbits at dawn and place them as bait in Redfern Clearing. Return to the station laptop and wait 10 seconds, then hunt the fast-charging lioness. She takes four shots within 100 metres and deals 35 health damage per charge. Recover and sell her to finish. After an attempt, replay the full expedition or start directly at the lioness hunt.
 9. **Wolf tower watch and bear hunt** — Climb the watchtower at night and protect the pond from five packs of four wolves. Each wolf takes one shot; feeding wolves slowly deplete the fish supply. Losing all fish fails the job. Packs arrive 10 seconds after the previous pack is cleared. At dawn, buy a fishing rod, then hold E at the pond bank for five seconds to catch and load twenty fish. Place them one by one as bait in Briarwood Basin, return to the station laptop and wait 10 seconds. The bear charges as fast as the lioness, takes five shots within 60 metres and deals 50 health damage per charge. Recover and sell it to finish. After an attempt, replay the full expedition or start directly at the bear hunt.
 10. **The Grand Hunt** — Flooding beyond the reserve sends migrating herds past the watchtower. Hunt in daylight with no time limit or collection: 20 flying geese, 25 boars, 30 rabbits, 25 wolves, 15 deer, 8 alligators, 6 rhinos, 6 lionesses and 5 bears. A left-side tracker shows each quota. Animals arrive in random groups, missed targets return, and completed species stop spawning. Geese fly left to right in front of the tower near the pond, below the roof-obstructed sightline. Each animal takes one shot; fallen animals remain on the ground. Fulfil all 140 targets to conquer Northreach Reserve, then replay jobs or review your stats from the main menu.
+
+---
+
+## 🤝 **Contributing**
+
+Contributions are always welcome! Please follow these steps:
+
+1. Fork the repository.  
+2. Create a new branch (`git checkout -b feature/your-feature`).  
+3. Commit your changes (`git commit -m 'Add your message'`).  
+4. Push to the branch (`git push origin feature/your-feature`).  
+5. Open a pull request.  
+
+---
+
+## 🛡️ License
+
+This project is shared publicly for learning and inspiration purposes only.
+
+❌ You may **NOT** copy, reuse, redistribute, or modify this code.  
+✅ You may view and learn from the code.
+
+Copyright © | All rights reserved
