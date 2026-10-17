@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#101b16">
+  <title>Trail not found · Wildline</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body{min-height:100svh;display:grid;place-items:center;background:#101b16;isolation:isolate}
+    body:before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(#07120e8c,#07120eef),url('/assets/title-forest.png') center/cover}
+    main{width:min(680px,90%);text-align:center;padding:48px 20px}
+    .seal{width:82px;height:82px;border-radius:50%;margin-bottom:26px}
+    .trail-number{font-family:Wildline,Georgia,serif;font-size:clamp(100px,22vw,190px);line-height:1;color:#c3a569;text-shadow:0 5px 30px #0006;margin-bottom:22px}
+    h1{font-size:clamp(34px,6vw,56px)}
+    .message{font-size:22px;color:#c5cbbc;max-width:430px;margin:24px auto 32px}
+    .return{margin-top:40px;padding-top:22px;border-top:1px solid #c3a56938;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#aab4a3}
+  </style>
+</head>
+<body>
+  <main>
+    <a href="/" aria-label="Wildline home"><img class="seal" src="/assets/favicon.png" width="82" height="82" alt="Northreach Reserve emblem"></a>
+    <p class="eyebrow">Northreach Reserve</p>
+    <p class="trail-number" aria-label="Error 404">404</p>
+    <h1>You’ve wandered off the trail.</h1>
+    <p class="message">This page isn’t on the map. Head back to familiar ground and find your next expedition.</p>
+    <a class="button wood" href="/">Back to the reserve</a>
+    <p class="return">The wilderness is waiting</p>
+  </main>
+</body>
+</html>
