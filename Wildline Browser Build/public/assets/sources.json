@@ -1,0 +1,120 @@
+{
+  "license": "CC0 1.0",
+  "models": "https://3dassets.dev/",
+  "forestMaterials": "https://polyhaven.com/a/fir_tree_01",
+  "ground": "https://polyhaven.com/a/forest_floor",
+  "files": [
+    {
+      "name": "truck.glb",
+      "url": "https://cdn.3dassets.dev/assets/32505/v1/model.glb"
+    },
+    {
+      "name": "rifle.glb",
+      "url": "https://cdn.3dassets.dev/assets/32655/v1/model.glb"
+    },
+    {
+      "name": "carbine.glb",
+      "url": "https://cdn.3dassets.dev/assets/32651/v1/model.glb"
+    },
+    {
+      "name": "deer.glb",
+      "url": "https://cdn.3dassets.dev/assets/30203/v1/model.glb"
+    },
+    {
+      "name": "boar.glb",
+      "url": "https://cdn.3dassets.dev/assets/32710/v1/model.glb"
+    },
+    {
+      "name": "wolf.glb",
+      "url": "https://cdn.3dassets.dev/assets/32709/v1/model.glb"
+    },
+    {
+      "name": "bear.glb",
+      "url": "https://cdn.3dassets.dev/assets/30206/v1/model.glb"
+    },
+    {
+      "name": "rabbit.glb",
+      "url": "https://cdn.3dassets.dev/assets/28156/v1/model.glb"
+    },
+    {
+      "name": "fern.glb",
+      "url": "https://cdn.3dassets.dev/assets/32690/v1/model.glb"
+    },
+    {
+      "name": "rock.glb",
+      "url": "https://cdn.3dassets.dev/assets/32688/v1/model.glb"
+    },
+    {
+      "name": "log.glb",
+      "url": "https://cdn.3dassets.dev/assets/32687/v1/model.glb"
+    },
+    {
+      "name": "stump.glb",
+      "url": "https://cdn.3dassets.dev/assets/32686/v1/model.glb"
+    },
+    {
+      "name": "crate.glb",
+      "url": "https://cdn.3dassets.dev/assets/32675/v1/model.glb"
+    },
+    {
+      "name": "bench.glb",
+      "url": "https://cdn.3dassets.dev/assets/32622/v1/model.glb"
+    },
+    {
+      "name": "tower.glb",
+      "url": "https://cdn.3dassets.dev/assets/32617/v1/model.glb"
+    },
+    {
+      "name": "wall.glb",
+      "url": "https://cdn.3dassets.dev/assets/32605/v1/model.glb"
+    },
+    {
+      "name": "window.glb",
+      "url": "https://cdn.3dassets.dev/assets/32607/v1/model.glb"
+    },
+    {
+      "name": "door.glb",
+      "url": "https://cdn.3dassets.dev/assets/32608/v1/model.glb"
+    },
+    {
+      "name": "roof.glb",
+      "url": "https://cdn.3dassets.dev/assets/32616/v1/model.glb"
+    },
+    {
+      "name": "tree.glb",
+      "url": "https://cdn.3dassets.dev/assets/32683/v1/model.glb"
+    },
+    {
+      "name": "bark.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_tree_01/fir_tree_01_bark_diff_1k.jpg"
+    },
+    {
+      "name": "bark-normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_tree_01/fir_tree_01_bark_nor_gl_1k.jpg"
+    },
+    {
+      "name": "needles.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_tree_01/fir_tree_01_twig_diff_1k.jpg"
+    },
+    {
+      "name": "needles-alpha.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/fir_tree_01/fir_tree_01_twig_alpha_1k.jpg"
+    },
+    {
+      "name": "soil.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forest_floor/forest_floor_diff_1k.jpg"
+    },
+    {
+      "name": "soil-normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forest_floor/forest_floor_nor_gl_1k.jpg"
+    },
+    {
+      "name": "soil-rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forest_floor/forest_floor_rough_1k.jpg"
+    },
+    {
+      "name": "sky.hdr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloofendal_48d_partly_cloudy_puresky_1k.hdr"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"name":"wildline","version":"0.2.0","private":true,"type":"module","dependencies":{"three":"0.180.0"},"scripts":{"start":"node server.mjs","test":"node --test tests/core.test.mjs"}}

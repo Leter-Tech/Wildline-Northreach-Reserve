@@ -1,0 +1,25 @@
+// Credited field recordings and music, never synthesized sources.
+export class FieldAudio {
+ constructor(){this.combat=false;this.ctx=null;this.volume=.55;this.musicVolume=.55;this.buffers={};this.stepTimer=0;this.stepIndex=0;this.errors=[];this.shotsPlayed=0;this.collisionsPlayed=0;this.landingsPlayed=0;}
+ async start(){
+  if(this.ctx){await this.ctx.resume();return;}
+  this.ctx=new AudioContext();this.master=this.ctx.createGain();this.master.gain.value=this.volume;this.master.connect(this.ctx.destination);this.musicBus=this.ctx.createGain();this.musicBus.gain.value=this.musicVolume;this.musicBus.connect(this.ctx.destination);await this.ctx.resume();
+  const files={collision:'collision.ogg',rifle:'rifle.wav',carbine:'carbine.wav',ambush:'ambush.mp3',reload:'reload.wav',bolt:'bolt.wav',engine:'engine.wav',birds:'birds.ogg',crickets:'crickets.mp3',music:'music.mp3',...Object.fromEntries(Array.from({length:6},(_,i)=>['step'+i,'step'+i+'.ogg']))};
+  await Promise.all(Object.entries(files).map(async([name,file])=>{try{const res=await fetch('./assets/audio/'+file);if(!res.ok)throw Error(file);this.buffers[name]=await this.ctx.decodeAudioData(await res.arrayBuffer());}catch(e){this.errors.push(name);console.warn('Audio unavailable:',name,e);}}));
+  this.engine=this.play('engine',0,true);this.birds=this.play('birds',this.night?0:.12,true);this.crickets=this.play('crickets',0,true);this.music=this.play('music',.11,true);this.applyMusic();this.setNight(this.night);
+ }
+ play(name,volume=.5,loop=false){if(!this.ctx||!this.buffers[name])return null;const source=this.ctx.createBufferSource(),gain=this.ctx.createGain();source.buffer=this.buffers[name];source.loop=loop;gain.gain.value=volume;if(name==='collision'){const filter=this.ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=1600;filter.Q.value=.5;source.connect(filter);filter.connect(gain);}else source.connect(gain);gain.connect((name==='music'||name==='ambush')?this.musicBus:this.master);source.start();return{source,gain};}
+ shot(weapon='rifle'){this.shotsPlayed++;this.play(weapon,1.15);if(weapon==='rifle')setTimeout(()=>this.play('bolt',.22),650);}
+ collision(speed){this.collisionsPlayed++;this.play('collision',Math.min(.42,.12+Math.abs(speed)*.02));}
+ land(){this.landingsPlayed++;this.play('step3',.48);this.stepTimer=.3;}
+ impact(){this.play('step4',.55);}
+ async uiClick(){if(this.volume<=0)return;try{this.uiContext??=new AudioContext();const ctx=this.uiContext;await ctx.resume();this.uiBuffer??=fetch('./assets/audio/step0.ogg').then(r=>r.arrayBuffer()).then(b=>ctx.decodeAudioData(b));const buffer=await this.uiBuffer;if(this.volume<=0)return;const now=ctx.currentTime;if(now-(this.lastUiClick??-1)<.08)return;this.lastUiClick=now;const source=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain();source.buffer=buffer;source.playbackRate.value=.85;filter.type='lowpass';filter.frequency.value=650;filter.Q.value=.3;gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(this.volume*.65,now+.018);gain.gain.exponentialRampToValueAtTime(.0001,now+.15);source.connect(filter);filter.connect(gain);gain.connect(ctx.destination);source.start(now,0,.14);source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();};}catch{}}
+ reload(){this.play('reload',.45);}
+ update(dt,speed,driving,walking){if(!this.ctx)return;const t=this.ctx.currentTime;this.master.gain.setTargetAtTime(this.volume,t,.15);if(this.engine){this.engine.gain.gain.setTargetAtTime(driving?.65:0,t,.3);this.engine.source.playbackRate.setTargetAtTime(.78+Math.min(55/3.6,Math.abs(speed))*.065,t,.2);}this.stepTimer-=dt;if(walking&&this.stepTimer<=0){this.stepTimer=.48;this.play('step'+(this.stepIndex++%6),.22);}}
+ setCombat(active){if(this.combat===!!active)return;this.combat=!!active;this.applyMusic();}
+ applyMusic(){if(!this.ctx)return;const t=this.ctx.currentTime;if(this.combat&&!this.battle&&this.buffers.ambush)this.battle=this.play('ambush',0,true);this.music?.gain.gain.setTargetAtTime(this.combat?0:.11,t,.5);this.battle?.gain.gain.setTargetAtTime(this.combat?.22:0,t,.35);}
+ setNight(active){this.night=active;if(this.crickets)this.crickets.gain.gain.setTargetAtTime(active?.48:0,this.ctx.currentTime,.7);if(this.birds){this.birds.gain.gain.cancelScheduledValues(this.ctx.currentTime);this.birds.gain.gain.setValueAtTime(active?0:.12,this.ctx.currentTime);}if(!active&&this.crickets){this.crickets.gain.gain.cancelScheduledValues(this.ctx.currentTime);this.crickets.gain.gain.setValueAtTime(0,this.ctx.currentTime);}}
+ setDawn(t){if(!this.ctx)return;const now=this.ctx.currentTime;for(const [sound,gain] of [[this.crickets,.48*Math.max(0,1-t*2)],[this.birds,.12*Math.max(0,(t-.6)/.4)]])if(sound){sound.gain.gain.cancelScheduledValues(now);sound.gain.gain.setValueAtTime(gain,now);}}
+ setVolumes(sound,music){this.volume=sound;this.musicVolume=music;if(this.ctx){this.master.gain.setTargetAtTime(sound,this.ctx.currentTime,.15);this.musicBus.gain.setTargetAtTime(music,this.ctx.currentTime,.15);}}
+ quiet(){if(this.engine)this.engine.gain.gain.setTargetAtTime(0,this.ctx.currentTime,.2);}
+}
